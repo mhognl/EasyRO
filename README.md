@@ -7,7 +7,7 @@ EasyRO is a script providing read-only mode and read-write mode. It's aimed on '
 ### Instructions
 If you don't want to read instructions about how it works, then only run the following command:
 
-  curl https://tomaaien.nl/easyro/install | bash
+  *curl https://tomaaien.nl/easyro/install | bash*
   
 
 #### Prerequisite
@@ -18,11 +18,11 @@ I've made two version: the testing branch and stable branch. The testing branch 
 
 If you want to install the *stable*  branch:
 
-  curl https://tomaaien.nl/easyro/install | bash
+  *curl https://tomaaien.nl/easyro/install | bash*
   
 If you want to install the *testing*  branch:
   
-  curl https://tomaaien.nl/easyro/testing/install | bash
+  *curl https://tomaaien.nl/easyro/testing/install | bash*
   
 ### Extra information
 There are 2 commands when installed: easyro-ro and easyro-rw. The first one makes you root filesystem read-only. The second one makes your filesystem read-write.
@@ -35,16 +35,18 @@ If you want to remove this script you can do 2 things: or you remove it complete
 
 If you want to remove it completely (as root):
   
-  rm /etc/systemd/system/rc-local.service /etc/rc.local /usr/local/bin/easy-r*
+  *rm /etc/systemd/system/rc-local.service /etc/rc.local /usr/local/bin/easy-r**
   
 And then reboot.
 
 
 If you want to replace rc.local with the original one and remove the script (as root):
 
-  rm /etc/rc.local /usr/local/bin/easy-r*
+  *rm /etc/rc.local /usr/local/bin/easy-r**
   
 Then you create a new rc.local with the rc.local on this GitHub page (master branch => rc.local-restore).
 If copy it, paste it in /etc/rc.local with your favorite text/programming editor.
 
 Then reboot.
+
+## Cheers!
