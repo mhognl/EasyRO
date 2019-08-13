@@ -24,3 +24,27 @@ If you want to install the *testing*  branch:
   
   curl https://tomaaien.nl/easyro/testing/install | bash
   
+### Extra information
+There are 2 commands when installed: easyro-ro and easyro-rw. The first one makes you root filesystem read-only. The second one makes your filesystem read-write.
+
+The last one: when booting your device, it takes 60 seconds to make the fs (filesystem) read-only. That happens automatically. The reason is that some services refuse to start if the filesystem is read-only at boot. That's why I made this script.
+
+### Uninstall
+
+If you want to remove this script you can do 2 things: or you remove it completely or you remove only the script and replace the rc.local file with the original one.
+
+If you want to remove it completely (as root):
+  
+  rm /etc/systemd/system/rc-local.service /etc/rc.local /usr/local/bin/easy-r*
+  
+And then reboot.
+
+
+If you want to replace rc.local with the original one and remove the script (as root):
+
+  rm /etc/rc.local /usr/local/bin/easy-r*
+  
+Then you create a new rc.local with the rc.local on this GitHub page (master branch => rc.local-restore).
+If copy it, paste it in /etc/rc.local with your favorite text/programming editor.
+
+Then reboot.
