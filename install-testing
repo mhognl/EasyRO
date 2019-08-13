@@ -1,0 +1,53 @@
+#!/bin/bash
+if [ "$(whoami)" == "root" ] ; then
+  echo "You are root user! Now we can continue installation..."
+else
+  echo "In order to run this script, you need to be root user!"
+  exit 0
+fi
+
+sleep 2
+echo "Installing EasyRO..."
+sleep 2
+
+RC='/etc/rc.local'
+COM='sleep 60 && echo "u" > /proc/sysrq-trigger && mount -o remount,ro / &'
+ 
+if [ -f "$RC" ];
+then
+	if grep -Fxq "$COM" "$RC"
+	then
+		echo "EasyRO already exists!"
+	else
+		echo "$RC exists, EasyRO not found, we add the script..."
+		mv /etc/rc.local /etc/rc.local.orig
+		wget https://tomaaien.nl/easyro/testing/rc.local -O /etc/rc.local
+		chmod +x /etc/rc.local
+		wget https://tomaaien.nl/easyro/testing/easyro-ro -O /usr/local/bin/easyro-ro
+		wget https://tomaaien.nl/easyro/testing/easyro-rw -O /usr/local/bin/easyro-rw
+		chmod +x /usr/local/bin/easyro-ro
+		chmod +x /usr/local/bin/easyro-rw
+	fi
+else
+	echo "$RC not exist, EasyRO not found, we create it now"
+	wget https://tomaaien.nl/easyro/testing/rc-local.service -O /etc/systemd/system/rc-local.service
+	chmod +x /etc/systemd/system/testing/rc-local.service
+	wget https://tomaaien.nl/easyro/testing/rc.local -O /etc/rc.local
+	chmod +x /etc/rc.local
+
+	systemctl daemon-reload
+	systemctl enable rc-local
+	systemctl start rc-local
+	
+	wget https://tomaaien.nl/easyro/testing/easyro-ro -O /usr/local/bin/easyro-ro
+	wget https://tomaaien.nl/easyro/testing/easyro-rw -O /usr/local/bin/easyro-rw
+	chmod +x /usr/local/bin/easyro-ro
+	chmod +x /usr/local/bin/easyro-rw
+fi
+
+echo "Installation done!"
+echo "If you want to write things, run easyro-rw as root"
+echo "And if you want to make things read only, run easyro-ro"
+sleep 2
+echo "Please reboot now if you clean installed EasyRO..."
+exit 0

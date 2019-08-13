@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$(whoami)" == "root" ] ; then
+  echo "You're root user!"
+else
+  echo "In order to run this script, you need to be root user!"
+  exit 0
+fi
+systemctl start rc-local
+echo "u" > /proc/sysrq-trigger && mount -o remount,ro /
+echo "Root filesystem mounted as Read-Only!"
+exit 0
