@@ -2,7 +2,7 @@
 ## Make root filesystem read-only!
 
 ### About
-EasyRO is a script providing read-only mode and read-write mode. It's designed with the goal of 'trying to make it simpler for everyone to make a read-only system'. This can be for many different purposes. such as: self-build router, vpn server etc.
+EasyRO is a script providing read-only mode and read-write mode. It's aimed on 'trying to make it simpler for everyone to make a read-only system'. This can be for many different purposes. such as: self-build router, vpn server etc.
 
 ### Instructions
 If you don't want to read instructions about how it works, then only run the following command:
