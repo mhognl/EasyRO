@@ -1,5 +1,5 @@
 # EasyRO (Inactive)
-## I decided to stop a few of my projects. The reaseon is that there's more time for future projects.
+## I decided to stop a few of my projects. The reason is that there's more time for future projects.
 ## Make root filesystem read-only!
 
 ### About
